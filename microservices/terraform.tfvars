@@ -1,0 +1,6 @@
+vpc_id           = ""
+domain_name      = ""
+zone_id          = ""
+certificate_arn  = ""
+public_key_name  = ""
+private_key_path = ""

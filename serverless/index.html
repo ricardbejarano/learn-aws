@@ -1,0 +1,33 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<title>Fortune Of The Day</title>
+		<link rel=icon href=https://cdn.bjrn.racing/favicon.ico>
+	</head>
+
+	<body style="margin:0;position:relative;display:flex;align-items:center;min-height:100vh">
+		<h1 id=fortune style="display:block;margin:0 auto;font-size:28px;font-family:monospace;font-weight:400;text-align:center"></h1>
+		<div style="display:flex;position:absolute;bottom:10px;right:10px">
+			<input type=text id=newfortune placeholder="A new fortune..." style="width:200px">
+			<button id=submit>ADD FORTUNE</button>
+		</div>
+		<script>
+			// GET /get -> getFortune.py
+			var x = new XMLHttpRequest();
+			x.open("GET", "https://api.bjrn.racing/v1/get", true);
+			x.onload = function(){document.getElementById("fortune").innerHTML = x.responseText};
+			x.send();
+
+			// POST /set -> setFortune.py
+			document.getElementById("submit").onclick = function() {
+				var y = new XMLHttpRequest();
+				y.open("POST", "https://api.bjrn.racing/v1/set", true);
+				y.send('{"fortune":"'+document.getElementById('newfortune').value+'"}')
+			}
+		</script>
+	</body>
+
+</html>
+

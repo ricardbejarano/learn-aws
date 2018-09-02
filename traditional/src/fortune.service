@@ -1,0 +1,15 @@
+[Unit]
+Description=Fortune Of The Day Server
+After=syslog.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/fortune
+ExecStart=/usr/bin/python3 /home/ubuntu/fortune/fortune.py
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
