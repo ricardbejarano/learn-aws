@@ -81,13 +81,16 @@ Serverless design _removes all administration tasks and leaves it to the guys at
 4. ***Only in Traditional and Microservices*** Create an EC2 [Key Pair](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#key-pairs) ([How?](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair))
 5. Run `python3 fortune_generator.py`
 6. Change to the architecture's directory (eg: `cd learn-aws/serverless`)
-7. Edit the `terraform.tfvars` file and fill in the empty variables
-8. Run `terraform init`
-9. Run `terraform apply`
+7. ***Only in Serverless*** Set all Lambda function file world-readable permissions (Run `chmod 644 *.py`) (Why? See *Note 2*)
+8. Edit the `terraform.tfvars` file and fill in the empty variables
+9. Run `terraform init`
+10. Run `terraform apply`
 
 Go to [www.yourdomain.com](https://www.yourdomain.com)!
 
 *Note: you may need to wait for DNS to propagate (usually minutes, sometimes hours).*
+
+*Note 2: AWS Lambda requires source files to be world-readable in order to execute them, or else it'll throw weird "Permission Denied" errors.*
 
 ### Destroy
 
