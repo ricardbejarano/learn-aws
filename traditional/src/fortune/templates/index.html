@@ -3,15 +3,14 @@
 <html>
 
 	<head>
-		<title>Fortune Of The Day</title>
-		<link rel=icon href=/favicon.ico>
+		<title>Fortune Of The Day - Traditional</title>
 	</head>
 
-	<body style="margin:0;position:relative;display:flex;align-items:center;min-height:100vh">
-		<h1 style="display:block;margin:0 auto;font-size:28px;font-family:monospace;font-weight:400;text-align:center">{{ fortune }}</h1>
-		<form action=/ method=post style="display:flex;position:absolute;bottom:10px;right:10px">
-			<input type=text name=fortune placeholder="A new fortune..." style="width:200px">
-			<input type=submit value="ADD FORTUNE">
+	<body style=margin:0;position:relative;display:flex;align-items:center;height:100vh;min-height:300px>
+		<h1 style=display:block;margin-left:auto;margin-right:auto;font-size:28px;font-weight:400;text-align:center>{{ fortune }}</h1>
+		<form action=/ method=post style=display:flex;align-items:stretch;position:absolute;bottom:10px;right:10px;height:25px>
+			<input type=text name=fortune placeholder="A new fortune..." style=width:200px;padding-left:5px;font-size:13px>
+			<input type=submit value="ADD FORTUNE" style=font-size:13px;line-height:22px>
 		</form>
 	</body>
 

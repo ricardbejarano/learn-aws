@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<title>Fortune Of The Day - Serverless</title>
+		<link rel=icon>
+	</head>
+
+	<body style=margin:0;position:relative;display:flex;align-items:center;height:100vh;min-height:300px>
+		<h1 id=x style=display:block;margin-left:auto;margin-right:auto;font-size:28px;font-weight:400;text-align:center></h1>
+		<div style=display:flex;align-items:stretch;position:absolute;bottom:10px;right:10px;height:25px>
+			<input id=y type=text placeholder="A new fortune..." style=width:200px;padding-left:5px;font-size:13px>
+			<button style=font-size:13px;line-height:22px onclick=set()>ADD FORTUNE</button>
+		</div>
+		<script>
+			// favicon (required to be domain name agnostic)
+			document.getElementsByTagName('head')[0].getElementsByTagName('link')[0].href=window.location.href.replace('www.','cdn.')+'favicon.ico';
+
+			// get
+			var x=new XMLHttpRequest();
+			x.open('GET',window.location.href.replace('www.','api.')+'v1/get',true);
+			x.onload=function(){document.getElementById('x').innerHTML=x.responseText};
+			x.send();
+
+			// set
+			function set(){
+				var y=new XMLHttpRequest();
+				y.open('POST',window.location.href.replace('www.','api.')+'v1/set',true);
+				y.send('{"fortune":"'+document.getElementById('y').value+'"}')
+			}
+		</script>
+	</body>
+
+</html>

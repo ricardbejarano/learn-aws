@@ -9,7 +9,7 @@
                 "dynamodb:GetItem",
                 "dynamodb:Scan"
             ],
-            "Resource": "arn:aws:dynamodb:*:*:table/*"
+            "Resource": "arn:aws:dynamodb:*:*:table/FortunesTraditional"
         }
     ]
 }

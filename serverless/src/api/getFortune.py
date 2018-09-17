@@ -1,12 +1,12 @@
-import random
-import boto3
+from random import randint
+from boto3 import resource
 
 
-db = boto3.resource("dynamodb", region_name="us-east-1").Table("fortunes")
+db = resource("dynamodb", region_name="us-east-1").Table("FortunesServerless")
 
 def get(event, context):
 	fortune = db.get_item(
-		Key = {"id": random.randint(1, db.scan()["Count"])}
+		Key = {"id": randint(0, db.scan()["Count"]-1)}
 	)["Item"]["fortune"]
 	return {
 		"isBase64Encoded": False,
